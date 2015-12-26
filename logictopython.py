@@ -42,7 +42,7 @@ for line in program:
     lineno += 1
 
 name = program[namepos+1]
-writefile = open(name + ".py", "w")
+writefile = open("../src/" + name + ".py", "w")
 inputs = []
 for i in program[inputspos+1:outputspos]:
     inputs.append(i.split(", "))
