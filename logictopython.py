@@ -17,8 +17,6 @@ def find_pin(pin):
             if outpin[1] == pin:
                 return gates.index(gate)
 
-#specials = ['Multiply']
-
 readfile = open(sys.argv[1])
 program = readfile.readlines()
 program = [i.rstrip("\n") for i in program if (i != "\n") and (i[0] != "#")]
@@ -59,7 +57,7 @@ gatestemp = []
 for i in program[logicpos+1:]:
     gatestemp.append(i.split(": "))
 
-imports = [i for i in uniquify([i[0] for i in gatestemp]) if i not in specials]
+imports = [i for i in uniquify([i[0] for i in gatestemp])]
 inpins = [i[0] for i in inputs]
 outpins = [i[0] for i in outputs]
 internalpins = [i[0] for i in internals]
@@ -76,8 +74,6 @@ for gatetemp in gatestemp:
     gate.append(gateout)
     gates.append(gate)
 
-#gates_no_specials = [i for i in gates if i[0] not in specials]
-
 for i in imports:
     writefile.write("import {0}\n".format(i))
 
@@ -92,9 +88,9 @@ for i in internals:
 for i in outputs:
     writefile.write("        self.{0} = [{1}]\n".format(i[0], int(i[1])*"0,"))
 
-for i in gates_no_specials:
+for i in gates:
     writefile.write("        self.gate{0} = {1}.{1}()\n"
-                    .format(gates_no_specials.index(i), i[0]))
+                    .format(gates.index(i), i[0]))
 
 writefile.write("    def _setup(self):\n")
 
@@ -102,8 +98,7 @@ for i in inpins + internalpins:
     writefile.write("        self._{0} = self.{0}\n".format(i))
 
 for gate in gates:
-#    if gate in gates_no_specials:
-    gatenum = gates_no_specials.index(gate)
+    gatenum = gates.index(gate)
     for pin in gate[1]:
         writefile.write("        self.gate{0}.{1} = self._{2}\n"
                         .format(gatenum, pin[0], pin[1]))
@@ -115,9 +110,6 @@ for gate in gates:
             output = [pin[0], ""]
         writefile.write("        self.{0} = self.gate{1}.{2}f(){3}\n"
                         .format(pin[1], gatenum, output[0], output[1]))
-#    elif gate[0] == "Multiply":
-#        writefile.write("        self.{0} = (self.{1})*{2}\n"
-#                        .format(gate[2][0][1], gate[1][0][1], gate[1][1][1]))
 
 for i in outputs:
     writefile.write("    def {0}f(self):\n"
