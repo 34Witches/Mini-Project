@@ -17,7 +17,7 @@ def find_pin(pin):
             if outpin[1] == pin:
                 return gates.index(gate)
 
-specials = ['Multiply']
+#specials = ['Multiply']
 
 readfile = open(sys.argv[1])
 program = readfile.readlines()
@@ -76,7 +76,7 @@ for gatetemp in gatestemp:
     gate.append(gateout)
     gates.append(gate)
 
-gates_no_specials = [i for i in gates if i[0] not in specials]
+#gates_no_specials = [i for i in gates if i[0] not in specials]
 
 for i in imports:
     writefile.write("import {0}\n".format(i))
@@ -102,22 +102,22 @@ for i in inpins + internalpins:
     writefile.write("        self._{0} = self.{0}\n".format(i))
 
 for gate in gates:
-    if gate in gates_no_specials:
-        gatenum = gates_no_specials.index(gate)
-        for pin in gate[1]:
-            writefile.write("        self.gate{0}.{1} = self._{2}\n"
-                            .format(gatenum, pin[0], pin[1]))
-        for pin in gate[2]:
-            if "[" in pin[0]:
-                output = pin[0].split("[")
-                output[1] = "[" + output[1]
-            else:
-                output = [pin[0], ""]
-            writefile.write("        self.{0} = self.gate{1}.{2}f(){3}\n"
-                            .format(pin[1], gatenum, output[0], output[1]))
-    elif gate[0] == "Multiply":
-        writefile.write("        self.{0} = (self.{1})*{2}\n"
-                        .format(gate[2][0][1], gate[1][0][1], gate[1][1][1]))
+#    if gate in gates_no_specials:
+    gatenum = gates_no_specials.index(gate)
+    for pin in gate[1]:
+        writefile.write("        self.gate{0}.{1} = self._{2}\n"
+                        .format(gatenum, pin[0], pin[1]))
+    for pin in gate[2]:
+        if "[" in pin[0]:
+            output = pin[0].split("[")
+            output[1] = "[" + output[1]
+        else:
+            output = [pin[0], ""]
+        writefile.write("        self.{0} = self.gate{1}.{2}f(){3}\n"
+                        .format(pin[1], gatenum, output[0], output[1]))
+#    elif gate[0] == "Multiply":
+#        writefile.write("        self.{0} = (self.{1})*{2}\n"
+#                        .format(gate[2][0][1], gate[1][0][1], gate[1][1][1]))
 
 for i in outputs:
     writefile.write("    def {0}f(self):\n"
