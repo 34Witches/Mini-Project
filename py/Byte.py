@@ -27,7 +27,7 @@ class Byte():
         self.out[2:3] = self.gate2.outf()
         self.gate3.a = self._a[3:4]
         self.gate3.load = self._load
-        self.out[0:4] = self.gate3.outf()
+        self.out[3:4] = self.gate3.outf()
         self.gate4.a = self._a[4:5]
         self.gate4.load = self._load
         self.out[4:5] = self.gate4.outf()
