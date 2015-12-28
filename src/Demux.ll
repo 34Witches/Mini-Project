@@ -10,6 +10,7 @@ outa, 1
 outb, 1
 
 [INTERNALS]
+invselect, 1
 
 [LOGIC]
 Not: a<select, out>invselect

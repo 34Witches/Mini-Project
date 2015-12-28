@@ -5,6 +5,7 @@ class Demux():
     def __init__(self):
         self.a = [0,]
         self.select = [0,]
+        self.invselect = [0,]
         self.outa = [0,]
         self.outb = [0,]
         self.gate0 = Not.Not()
@@ -13,6 +14,7 @@ class Demux():
     def _setup(self):
         self._a = self.a
         self._select = self.select
+        self._invselect = self.invselect
         self.gate0.a = self._select
         self.invselect = self.gate0.outf()
         self.gate1.a = self._a
