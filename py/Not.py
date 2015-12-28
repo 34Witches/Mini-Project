@@ -6,9 +6,8 @@ class Not():
         self.out = [0,]
         self.gate0 = Nand.Nand()
     def _setup(self):
-        self._a = self.a
-        self.gate0.a = self._a
-        self.gate0.b = self._a
+        self.gate0.a = self.a
+        self.gate0.b = self.a
         self.out = self.gate0.outf()
     def outf(self):
         self._setup()

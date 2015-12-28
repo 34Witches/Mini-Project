@@ -15,22 +15,16 @@ class Adder():
         self.gate1 = HalfAdder.HalfAdder()
         self.gate2 = Or.Or()
     def _setup(self):
-        self._a = self.a
-        self._b = self.b
-        self._c = self.c
-        self._d = self.d
-        self._e = self.e
-        self._f = self.f
-        self.gate0.a = self._a
-        self.gate0.b = self._b
+        self.gate0.a = self.a
+        self.gate0.b = self.b
         self.d = self.gate0.outf()
         self.e = self.gate0.carryf()
-        self.gate1.a = self._c
-        self.gate1.b = self._d
+        self.gate1.a = self.c
+        self.gate1.b = self.d
         self.out = self.gate1.outf()
         self.f = self.gate1.carryf()
-        self.gate2.a = self._e
-        self.gate2.b = self._f
+        self.gate2.a = self.e
+        self.gate2.b = self.f
         self.carry = self.gate2.outf()
     def outf(self):
         self._setup()

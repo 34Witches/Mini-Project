@@ -10,15 +10,11 @@ class AdderEnd():
         self.gate0 = Xor.Xor()
         self.gate1 = Xor.Xor()
     def _setup(self):
-        self._a = self.a
-        self._b = self.b
-        self._c = self.c
-        self._d = self.d
-        self.gate0.a = self._a
-        self.gate0.b = self._b
+        self.gate0.a = self.a
+        self.gate0.b = self.b
         self.d = self.gate0.outf()
-        self.gate1.a = self._c
-        self.gate1.b = self._d
+        self.gate1.a = self.c
+        self.gate1.b = self.d
         self.out = self.gate1.outf()
     def outf(self):
         self._setup()

@@ -12,16 +12,13 @@ class Demux():
         self.gate1 = And.And()
         self.gate2 = And.And()
     def _setup(self):
-        self._a = self.a
-        self._select = self.select
-        self._invselect = self.invselect
-        self.gate0.a = self._select
+        self.gate0.a = self.select
         self.invselect = self.gate0.outf()
-        self.gate1.a = self._a
-        self.gate1.b = self._invselect
+        self.gate1.a = self.a
+        self.gate1.b = self.invselect
         self.outa = self.gate1.outf()
-        self.gate2.a = self._a
-        self.gate2.b = self._select
+        self.gate2.a = self.a
+        self.gate2.b = self.select
         self.outb = self.gate2.outf()
     def outaf(self):
         self._setup()

@@ -94,13 +94,13 @@ for i in gates:
 
 writefile.write("    def _setup(self):\n")
 
-for i in inpins + internalpins:
-    writefile.write("        self._{0} = self.{0}\n".format(i))
+# for i in inpins + internalpins:
+#     writefile.write("        self._{0} = self.{0}\n".format(i))
 
 for gate in gates:
     gatenum = gates.index(gate)
     for pin in gate[1]:
-        writefile.write("        self.gate{0}.{1} = self._{2}\n"
+        writefile.write("        self.gate{0}.{1} = self.{2}\n"
                         .format(gatenum, pin[0], pin[1]))
     for pin in gate[2]:
         if "[" in pin[0]:
