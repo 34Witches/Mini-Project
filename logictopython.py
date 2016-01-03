@@ -100,8 +100,12 @@ writefile.write("    def _setup(self):\n")
 for gate in gates:
     gatenum = gates.index(gate)
     for pin in gate[1]:
-        writefile.write("        self.gate{0}.{1} = self.{2}\n"
-                        .format(gatenum, pin[0], pin[1]))
+        if pin[1][0] == '[':
+            pinval = pin[1]
+        else:
+            pinval = "self." + pin[1]
+        writefile.write("        self.gate{0}.{1} = {2}\n"
+                        .format(gatenum, pin[0], pinval))
     for pin in gate[2]:
         if "[" in pin[0]:
             output = pin[0].split("[")
