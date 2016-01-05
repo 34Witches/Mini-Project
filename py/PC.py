@@ -1,3 +1,5 @@
+import Bit
+
 class PC():
     def __init__(self):
         self.counter = 0
@@ -6,8 +8,9 @@ class PC():
         self.load = [0]
         self.reset = [0]
         self.out = [0 for i in range(15)]
+        Bit.Bit.bits.append(self)
 
-    def _setup(self):
+    def update(self):
         if self.reset[0]:
             self.counter = 0
         elif self.load[0]:
@@ -21,5 +24,4 @@ class PC():
             self.out = [0 for i in range(16 - len(self.out))] + self.out
 
     def outf(self):
-        self._setup()
         return self.out
