@@ -23,8 +23,8 @@ fina, 16
 afterzb, 16
 negb, 16
 finb, 16
-and, 16
-add, 16
+anded, 16
+added, 16
 normalout, 16
 negout, 16
 test, 16
@@ -36,9 +36,9 @@ Mux16Bit: a<afterza, b<nega, selext<na, out>fina
 Mux16Bit: a<b, b<[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], select<zb, out>afterzb
 Not16Bit: a<afterzb, out>negb
 Mux16Bit: a<afterzb, b<negb, selext<nb, out>finb
-And16Bit: a<fina, b<finb, out>and
-Adder16Bit: a<fina, b<finb, out>add
-Mux16Bit: a<and, b<add, select<f, out>normalout
+And16Bit: a<fina, b<finb, out>anded
+Adder16Bit: a<fina, b<finb, out>added
+Mux16Bit: a<anded, b<added, select<f, out>normalout
 Not16Bit: a<normalout, out>negout
 Mux16Bit: a<normalout, b<negout, select<no, out>out, out>test, out[0:1]>ng
 IsZero: a<test, out>zr

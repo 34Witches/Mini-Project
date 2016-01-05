@@ -20,8 +20,8 @@ class ALU():
         self.afterzb = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
         self.negb = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
         self.finb = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
-        self.and = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
-        self.add = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+        self.anded = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
+        self.added = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
         self.normalout = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
         self.negout = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
         self.test = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,]
@@ -63,12 +63,12 @@ class ALU():
         self.finb = self.gate5.outf()
         self.gate6.a = self.fina
         self.gate6.b = self.finb
-        self.and = self.gate6.outf()
+        self.anded = self.gate6.outf()
         self.gate7.a = self.fina
         self.gate7.b = self.finb
-        self.add = self.gate7.outf()
-        self.gate8.a = self.and
-        self.gate8.b = self.add
+        self.added = self.gate7.outf()
+        self.gate8.a = self.anded
+        self.gate8.b = self.added
         self.gate8.select = self.f
         self.normalout = self.gate8.outf()
         self.gate9.a = self.normalout
