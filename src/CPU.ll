@@ -13,6 +13,22 @@ address, 15
 counter, 15
 
 [INTERNALS]
+ina, 16
+writea, 1
+vala, 16
+inb, 16
+writeb, 1
+valb, 16
+instructioncode, 16
+alua, 16
+alub, 16
+aluout, 16
+iszero, 1
+isnegative, 1
+null, 1
+writea1, 1
+writea2, 1
+
 
 [LOGIC]
 #A Register
