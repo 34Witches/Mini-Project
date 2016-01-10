@@ -1,9 +1,9 @@
 class Bit():
 
-    bits = []
+    clocked = []
 
     def __init__(self):
-        Bit.bits.append(self)
+        Bit.clocked.append(self)
         self.a = [0]
         self.load = [0]
         self.out = [0]
