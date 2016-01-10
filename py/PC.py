@@ -8,7 +8,7 @@ class PC():
         self.load = [0]
         self.reset = [0]
         self.out = [0 for i in range(15)]
-        Bit.Bit.bits.append(self)
+        Bit.Bit.clocked.append(self)
 
     def update(self):
         if self.reset[0]:

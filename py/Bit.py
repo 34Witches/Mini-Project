@@ -3,7 +3,7 @@ class Bit():
     bits = []
 
     def __init__(self):
-        type(self).bits.append(self)
+        Bit.bits.append(self)
         self.a = [0]
         self.load = [0]
         self.out = [0]
