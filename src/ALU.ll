@@ -32,10 +32,10 @@ test, 16
 [LOGIC]
 Mux16Bit: a<a, b<[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], select<za, out>afterza
 Not16Bit: a<afterza, out>nega
-Mux16Bit: a<afterza, b<nega, selext<na, out>fina
+Mux16Bit: a<afterza, b<nega, select<na, out>fina
 Mux16Bit: a<b, b<[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0], select<zb, out>afterzb
 Not16Bit: a<afterzb, out>negb
-Mux16Bit: a<afterzb, b<negb, selext<nb, out>finb
+Mux16Bit: a<afterzb, b<negb, select<nb, out>finb
 And16Bit: a<fina, b<finb, out>anded
 Adder16Bit: a<fina, b<finb, out>added
 Mux16Bit: a<anded, b<added, select<f, out>normalout

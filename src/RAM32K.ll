@@ -14,7 +14,7 @@ out, 16
 [LOGIC]
 Demux8Way: a<load, select<select[0:3], outa>b, outb>c, outc>d, outd>e, oute>f, outf>g, outg>h, outh>i
 RAM4K: a<a, select<select[3:15], load<b, out>r
-RAM4K: a<a, select<select[3:15], load<cy out>s
+RAM4K: a<a, select<select[3:15], load<c, out>s
 RAM4K: a<a, select<select[3:15], load<d, out>t
 RAM4K: a<a, select<select[3:15], load<e, out>u
 RAM4K: a<a, select<select[3:15], load<f, out>v

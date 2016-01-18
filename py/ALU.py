@@ -49,7 +49,7 @@ class ALU():
         self.nega = self.gate1.outf()
         self.gate2.a = self.afterza
         self.gate2.b = self.nega
-        self.gate2.selext = self.na
+        self.gate2.select = self.na
         self.fina = self.gate2.outf()
         self.gate3.a = self.b
         self.gate3.b = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
@@ -59,7 +59,7 @@ class ALU():
         self.negb = self.gate4.outf()
         self.gate5.a = self.afterzb
         self.gate5.b = self.negb
-        self.gate5.selext = self.nb
+        self.gate5.select = self.nb
         self.finb = self.gate5.outf()
         self.gate6.a = self.fina
         self.gate6.b = self.finb

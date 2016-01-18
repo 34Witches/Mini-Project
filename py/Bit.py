@@ -8,9 +8,9 @@ class Bit():
         self.load = [0]
         self.out = [0]
 
-    @classmethod
-    def tick(cls):
-        for i in cls.bits:
+    @staticmethod
+    def tick():
+        for i in Bit.clocked:
             i.update()
 
     def update(self):

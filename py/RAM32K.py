@@ -35,8 +35,8 @@ class RAM32K():
         self.r = self.gate1.outf()
         self.gate2.a = self.a
         self.gate2.select = self.select[3:15]
-        self.gate2.load = self.cy out>s
-        self.s = self.gate2.load<cy outf()
+        self.gate2.load = self.c
+        self.s = self.gate2.outf()
         self.gate3.a = self.a
         self.gate3.select = self.select[3:15]
         self.gate3.load = self.d
